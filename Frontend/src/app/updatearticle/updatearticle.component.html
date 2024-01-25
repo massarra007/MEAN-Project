@@ -1,0 +1,23 @@
+<div class="container mt-4">
+    <h2 class="text-center">Update Article</h2>
+  
+    <div class="col-6 mx-auto">
+        <input [(ngModel)]="article.title" type="text" class="form-control m-1" placeholder="Title">
+      
+      <!-- Display categories -->
+      <ul>
+        <li *ngFor="let item of article.categorie">{{ item }}</li>
+      </ul>
+      
+      <div class="row m-1">
+        <input [(ngModel)]="cat" type="text" class="form-control w-75" placeholder="Tag">
+        <button class="btn btn-dark w-25" (click)="article.categorie.push(cat); cat=''" >Add</button>
+      </div>
+  
+      <input (change)="selectImage($event)" type="file" class="form-control m-1" placeholder="Image">
+      <angular-editor [(ngModel)]="article.description" placeholder="description" ></angular-editor>
+ 
+      <button (click)="update()" class="btn btn-dark form-control m-1">Update</button>
+    </div>
+  </div>
+  

@@ -1,0 +1,31 @@
+
+<div class="container mt-4">
+
+
+    <h2 class="text-center"> Create article  </h2>
+
+    <div class="col-6 mx-auto">
+
+     
+
+        <input [(ngModel)]="article.title" type="text" class="form-control m-1" placeholder="title">
+        <ul>
+            <li *ngFor="let item of article.categorie"> {{item}} </li>
+        </ul>
+        <div class="row m-1" >
+            <input [(ngModel)]="cat" type="text" class="form-control w-75" placeholder="tag"> 
+            <button class="btn btn-dark w-25" (click)="article.categorie.push(cat); cat=''" >Add</button>
+    
+        </div>
+     
+        <input (change)="selectImage($event)" type="file"  class="form-control m-1" placeholder="image">
+        <div class="m-1">
+        <angular-editor [(ngModel)]="article.description" placeholder="description" ></angular-editor>
+        </div>
+        <div class="custom-top-margin">
+        <button (click)="create()" class="btn btn-dark form-control m-1">create</button>
+    </div>
+
+    </div>
+
+</div>

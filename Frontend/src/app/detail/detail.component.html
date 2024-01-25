@@ -1,0 +1,32 @@
+<section class="section-sm pb-0">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="mb-5">
+            <h3 class="h1 mb-4 post-title">{{article.title}}</h3>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="mb-5 text-center">
+            <img class="w-100 h-auto rounded" [src]="'http://127.0.0.1:3000/getimage/' + article.image" alt="What does it take to create an object that travels at 1% the speed of light?" width="970" height="500">
+          </div>
+        </div>
+        <div class="col-lg-8 post-content-block order-0 order-lg-2">
+          <div class="content" [innerHTML]="article.description">
+            {{article.description}}
+          </div>
+  
+          <ul class="post-meta-tag list-unstyled list-inline mt-5">
+            <li class="list-inline-item">Tags : </li>
+            <li class="list-inline-item" *ngFor="let item of article.categorie"><a class="bg-white" href="tag-single.html">{{item}}</a></li>
+          </ul>
+          <div>
+            <button [routerLink]="['/update' , article._id]" class="btn btn-success">Edit</button>
+            <div *ngIf="_auth.isLoggedIn() == true" > 
+            <button (click)="delete(article._id)" class="btn btn-danger">Delete</button>
+            </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
